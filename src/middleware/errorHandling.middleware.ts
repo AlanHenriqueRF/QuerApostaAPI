@@ -14,7 +14,13 @@ export function handleApplicationErrors(
     });
   }
 
-  if (err.name === 'balanceMinError') {
+  if (err.name === 'balanceMinError' || err.name === 'alreadyFinishGameError') {
+    return res.status(400).send({
+      message: err.message,
+    });
+  }
+
+  if (err.name === 'AmountBetGreaterError') {
     return res.status(400).send({
       message: err.message,
     });

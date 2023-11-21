@@ -7,6 +7,6 @@ import { Router } from 'express';
 const gamesRouter = Router()
 
 gamesRouter.post('/', validateBody(gamesShema), gamesController.createGame)
-gamesRouter.get('/',gamesController.getGame)
+gamesRouter.get('/', gamesController.getGame)
 
 export { gamesRouter }

@@ -5,6 +5,7 @@ import { loadEnv, connectDb, disconnectDB, prisma } from '@/config';
 import { participantsRouter } from './routers/participants.routes';
 import { handleApplicationErrors } from './middleware/errorHandling.middleware';
 import { gamesRouter } from './routers/games.routes';
+import betsRouter from './routers/bets.routes';
 
 loadEnv();
 
@@ -15,6 +16,7 @@ app
     .get('/health', async (req: Request, res: Response) => { res.status(200).send('ok ta funcionando') })
     .use('/participants', participantsRouter)
     .use('/games', gamesRouter)
+    .use('/bets', betsRouter)
     .use(handleApplicationErrors)
 
 

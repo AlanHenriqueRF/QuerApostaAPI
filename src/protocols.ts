@@ -8,9 +8,18 @@ export type InputGame = {
     awayTeamName: string;
     homeTeamScore: number;
     awayTeamScore: number;
-    isFinished: boolean;    
+    isFinished: boolean;
 };
 
+export type Inputbets = {
+    homeTeamScore: number;
+    awayTeamScore: number;
+    amountBet: number;
+    gameId: number;
+    participantId: number;
+    status: 'PENDING' | 'WON' | 'LOST'
+    amountWon: number | null;
+}
 
 export type ApplicationError = {
     name: string;
