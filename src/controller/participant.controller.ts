@@ -1,7 +1,8 @@
-import { participantService } from "@/service/participantService";
+
+import { participantService } from "@/service/participant.service";
 import { Request, Response } from "express";
 
-export async function createParticipant(req: Request, res: Response) {
+async function createParticipant(req: Request, res: Response) {
     const body = req.body;
     const participant = await participantService.createParticipant(body)
 

@@ -3,6 +3,15 @@ export type InputParticipant = {
     balance: number;
 };
 
+export type InputGame = {
+    homeTeamName: string;
+    awayTeamName: string;
+    homeTeamScore: number;
+    awayTeamScore: number;
+    isFinished: boolean;    
+};
+
+
 export type ApplicationError = {
     name: string;
     message: string;

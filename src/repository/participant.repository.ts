@@ -1,5 +1,4 @@
 import { prisma } from "@/config";
-import { InputParticipant } from "@/protocols";
 import { Prisma } from "@prisma/client";
 
   

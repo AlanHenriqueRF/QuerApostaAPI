@@ -3,7 +3,8 @@ import "express-async-errors";
 import cors from 'cors';
 import { loadEnv, connectDb, disconnectDB, prisma } from '@/config';
 import { participantsRouter } from './routers/participants.routes';
-import { handleApplicationErrors } from './middleware/error-handling-middleware';
+import { handleApplicationErrors } from './middleware/errorHandling.middleware';
+import { gamesRouter } from './routers/games.routes';
 
 loadEnv();
 
@@ -13,6 +14,7 @@ app
     .use(json())
     .get('/health', async (req: Request, res: Response) => { res.status(200).send('ok ta funcionando') })
     .use('/participants', participantsRouter)
+    .use('/games', gamesRouter)
     .use(handleApplicationErrors)
 
 
