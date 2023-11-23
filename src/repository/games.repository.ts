@@ -6,6 +6,10 @@ async function createGame(data: Prisma.GameUncheckedCreateInput) {
     return prisma.game.create({ data })
 }
 
+async function getGames() {
+    return prisma.game.findMany({})
+}
+
 async function findFirstGame(id: number) {
     return prisma.game.findFirst({
         where: { id }
@@ -22,5 +26,6 @@ async function UpdateGame(data: Prisma.GameUpdateInput, id: number) {
 export const gamesRpository = {
     createGame,
     findFirstGame,
-    UpdateGame
+    UpdateGame,
+    getGames
 }

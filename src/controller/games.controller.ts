@@ -19,7 +19,8 @@ async function UpdateGame(req: Request, res: Response) {
 }
 
 async function getGame(req: Request, res: Response) {
-    res.status(200).send('Em construção')
+    const games = await gamesService.getGame()
+    res.status(200).send(games)
 
 }
 
