@@ -9,6 +9,12 @@ async function createParticipant(body: InputParticipant) {
     return participant
 }
 
+async function findAllParticipants() {
+    const participant = await participantRpository.findAllParticipants()
+    return participant
+}
+
 export const participantService = {
-    createParticipant
+    createParticipant,
+    findAllParticipants
 }

@@ -7,5 +7,6 @@ import { Router } from 'express';
 const participantsRouter = Router()
 
 participantsRouter.post('/', validateBody(participantsSchema), participantController.createParticipant)
+participantsRouter.get('/',participantController.findAllParticipants)
 
 export { participantsRouter }

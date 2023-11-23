@@ -12,23 +12,21 @@ async function createGame(data: InputGame) {
 }
 
 async function UpdateGame(data: InputfinishGame, gameId: number) {
-    const checkedGame = await checkGame(gameId);
-/*     console.log(data)
- */
-    const game = await gamesRpository.UpdateGame({ ...data, isFinished: true }, gameId);
+    await checkGame(gameId);
+
+    await gamesRpository.UpdateGame({ ...data, isFinished: true }, gameId);
 
     await UpdateStatusBet(gameId, data.homeTeamScore, data.awayTeamScore);
+
     await UpdateAmountWon(gameId, data.homeTeamScore, data.awayTeamScore)
 
-
-    return 'testteee'//game
+    return await gamesRpository.findFirstGame(gameId)
 }
 
 async function checkGame(gameId: number) {
     const game = await gamesRpository.findFirstGame(gameId);
     if (!game) throw notFoundError();
     if (game.isFinished) throw alreadyFinishGameError();
-    return game
 }
 
 async function UpdateStatusBet(gameId: number, homeTeamScore: number, awayTeamScore: number) {
@@ -47,6 +45,7 @@ async function UpdateAmountWon(gameId: number, homeTeamScore: number, awayTeamSc
         betsRpository.UpdateAmountWon(new_amountBet, win.id);
         participantRpository.updateBalance(new_amountBet + (await participantRpository.findFirstParticipant(win.participantId)).balance, win.participantId)
     })
+    return winners;
 }
 
 export const gamesService = {

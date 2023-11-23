@@ -9,6 +9,12 @@ async function createParticipant(req: Request, res: Response) {
     res.status(201).send(participant)
 }
 
+async function findAllParticipants(req: Request, res: Response) {
+    const participant = await participantService.findAllParticipants()
+    res.status(200).send(participant);
+}
+
 export const participantController = {
-    createParticipant
+    createParticipant,
+    findAllParticipants
 }

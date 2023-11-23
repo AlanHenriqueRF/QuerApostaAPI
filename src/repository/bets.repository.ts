@@ -8,7 +8,6 @@ async function createBet(data: Prisma.BetUncheckedCreateInput) {
 
 async function findWinners(gameId: number, homeTeamScore: number, awayTeamScore: number) {
     return prisma.bet.findMany({
-        select: { id: true, participantId: true, amountBet: true },
         where: { gameId, homeTeamScore, awayTeamScore }
     })
 }
