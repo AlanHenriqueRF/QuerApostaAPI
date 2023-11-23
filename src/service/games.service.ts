@@ -10,8 +10,14 @@ async function createGame(data: InputGame) {
 
     return game
 }
+
 async function getGame() {
     const game = await gamesRpository.getGames()
+    return game
+}
+
+async function getGameIdWithBets(gameId:number) {
+    const game = await gamesRpository.getGameIdWithBets(gameId)
     return game
 }
 
@@ -54,5 +60,6 @@ async function UpdateAmountWon(gameId: number, homeTeamScore: number, awayTeamSc
 
 export const gamesService = {
     createGame,
-    UpdateGame,getGame
+    UpdateGame,getGame,
+    getGameIdWithBets
 }

@@ -10,6 +10,13 @@ async function getGames() {
     return prisma.game.findMany({})
 }
 
+async function getGameIdWithBets(gameId: number) {
+    return prisma.game.findFirst({
+        where: { id: gameId },
+        include: {Bet:true}
+    })
+}
+
 async function findFirstGame(id: number) {
     return prisma.game.findFirst({
         where: { id }
@@ -18,7 +25,7 @@ async function findFirstGame(id: number) {
 
 async function UpdateGame(data: Prisma.GameUpdateInput, id: number) {
     return prisma.game.update({
-        where: {id},
+        where: { id },
         data
     })
 }
@@ -27,5 +34,6 @@ export const gamesRpository = {
     createGame,
     findFirstGame,
     UpdateGame,
-    getGames
+    getGames,
+    getGameIdWithBets
 }
