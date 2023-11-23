@@ -10,6 +10,14 @@ async function createGame(req: Request, res: Response) {
     res.status(201).send(game)
 }
 
+async function UpdateGame(req: Request, res: Response) {
+    const { id } = req.params;
+    const body = req.body
+
+    const game = await gamesService.UpdateGame(body,Number(id))
+    res.status(201).send(game)
+}
+
 async function getGame(req: Request, res: Response) {
     res.status(200).send('Em construção')
 
@@ -17,5 +25,6 @@ async function getGame(req: Request, res: Response) {
 
 export const gamesController = {
     createGame,
-    getGame
+    getGame,
+    UpdateGame
 }

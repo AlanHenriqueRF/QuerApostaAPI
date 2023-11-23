@@ -19,8 +19,16 @@ async function updateParticipant(id: number, balance: number) {
     })
 }
 
+async function updateBalance(new_amountBet: number, participantId:number) {
+    return await prisma.participant.update({
+        where: { id: participantId },
+        data: { balance: new_amountBet }
+    })
+}
+
 export const participantRpository = {
     createParticipant,
     findFirstParticipant,
-    updateParticipant
+    updateParticipant,
+    updateBalance
 }

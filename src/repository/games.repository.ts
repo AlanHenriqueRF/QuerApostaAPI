@@ -12,7 +12,15 @@ async function findFirstGame(id: number) {
     })
 }
 
+async function UpdateGame(data: Prisma.GameUpdateInput, id: number) {
+    return prisma.game.update({
+        where: {id},
+        data
+    })
+}
+
 export const gamesRpository = {
     createGame,
-    findFirstGame
+    findFirstGame,
+    UpdateGame
 }

@@ -11,6 +11,12 @@ export type InputGame = {
     isFinished: boolean;
 };
 
+export type InputfinishGame = {
+    homeTeamScore: number;
+    awayTeamScore: number;
+};
+
+
 export type Inputbets = {
     homeTeamScore: number;
     awayTeamScore: number;
