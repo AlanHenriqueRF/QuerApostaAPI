@@ -25,7 +25,7 @@ async function getGame(req: Request, res: Response) {
 
 async function getGameIdWithBets(req: Request, res: Response) {
   const { id } = req.params;
-  console.log(id);
+
   const games = await gamesService.getGameIdWithBets(Number(id));
   res.status(200).send(games);
 }

@@ -44,7 +44,6 @@ describe('GET /participants', () => {
   it('should respond with status 200 when get all participant ', async () => {
     await createParticipant();
     const response = await server.get('/participants');
-    console.log(response.body);
 
     expect(response.status).toEqual(200);
     expect(response.body).toEqual([

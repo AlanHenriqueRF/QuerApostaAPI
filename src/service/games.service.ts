@@ -18,6 +18,8 @@ async function getGame() {
 
 async function getGameIdWithBets(gameId: number) {
   const game = await gamesRpository.getGameIdWithBets(gameId);
+  if (!game) throw notFoundError();
+
   return game;
 }
 
