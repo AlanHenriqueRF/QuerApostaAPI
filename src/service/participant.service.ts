@@ -1,20 +1,20 @@
-import { balanceMinError } from "@/errors/balanceMinError.error";
-import { InputParticipant } from "@/protocols";
-import { participantRpository } from "@/repository/participant.repository";
+import { balanceMinError } from '@/errors/balanceMinError.error';
+import { InputParticipant } from '@/protocols';
+import { participantRpository } from '@/repository/participant.repository';
 
 async function createParticipant(body: InputParticipant) {
-    if (body.balance < 1000) throw balanceMinError();
-    const participant = await participantRpository.createParticipant(body)
+  if (body.balance < 1000) throw balanceMinError();
+  const participant = await participantRpository.createParticipant(body);
 
-    return participant
+  return participant;
 }
 
 async function findAllParticipants() {
-    const participant = await participantRpository.findAllParticipants()
-    return participant
+  const participant = await participantRpository.findAllParticipants();
+  return participant;
 }
 
 export const participantService = {
-    createParticipant,
-    findAllParticipants
-}
+  createParticipant,
+  findAllParticipants,
+};

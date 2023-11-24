@@ -1,5 +1,5 @@
-import { ApplicationError, RequestError } from '@/protocols';
 import { Request, Response, NextFunction } from 'express';
+import { ApplicationError, RequestError } from '@/protocols';
 
 export function handleApplicationErrors(
   err: RequestError | ApplicationError | Error,
@@ -7,7 +7,6 @@ export function handleApplicationErrors(
   res: Response,
   next: NextFunction,
 ) {
-
   if (err.name === 'InvalidDataError') {
     return res.status(400).send({
       message: err.message,
@@ -37,4 +36,5 @@ export function handleApplicationErrors(
     error: 'InternalServerError',
     message: 'Internal Server Error',
   });
+  next();
 }
