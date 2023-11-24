@@ -66,13 +66,10 @@ describe('POST /games/:id/finish', () => {
   it('should respond with status 400 when post a game with isfineshd already true', async () => {
     const game = await createGameFinished();
 
-    console.log(game);
     const response = await server.post(`/games/${game.id}/finish`).send({
       homeTeamScore: 2,
       awayTeamScore: 0,
     });
-
-    console.log(response.body);
 
     expect(response.status).toEqual(400);
   });

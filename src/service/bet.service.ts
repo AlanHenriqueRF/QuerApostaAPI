@@ -11,6 +11,8 @@ async function createBet(data: Inputbets) {
   await checkGame(data.gameId);
   await updateBalance(data.participantId, participant.balance - data.amountBet);
 
+  if (data.amountBet <= 0) throw AmountBetGreaterError();
+
   const bet = await betsRpository.createBet(data);
 
   return bet;
