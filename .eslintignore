@@ -11,4 +11,4 @@ prisma/**/*
 docker-compose*
 Dockerfile*
 nginx.conf
-src/middleware
+src/middleware/errorHandling.middleware.ts
