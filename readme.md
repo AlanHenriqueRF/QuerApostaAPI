@@ -127,18 +127,19 @@ Execute as migrações do banco de dados usando os seguintes comandos:
         }
         ```
     * Retorna informações sobre a aposta criada.
-```json
-{
-  "id": 1,
-  "createdAt": "timestamp",
-  "updatedAt": "timestamp",
-  "homeTeamScore": 2,
-  "awayTeamScore": 1,
-  "amountBet": 1000,
-  "gameId": 1,
-  "participantId": 1,
-  "status": "PENDING",
-  "amountWon": null
-}
-```
-Esperamos que estas instruções sejam úteis para configurar e utilizar a API "Quer Apostar". Se houver alguma dúvida ou problema, sinta-se à vontade para entrar em contato.
+        ```json
+        {
+        "id": 1,
+        "createdAt": "timestamp",
+        "updatedAt": "timestamp",
+        "homeTeamScore": 2,
+        "awayTeamScore": 1,
+        "amountBet": 1000,
+        "gameId": 1,
+        "participantId": 1,
+        "status": "PENDING",
+        "amountWon": null
+        }
+        ```
+
+Espero que estas instruções sejam úteis para configurar e utilizar a API "Quer Apostar". Se houver alguma dúvida ou problema, sinta-se à vontade para entrar em contato.
