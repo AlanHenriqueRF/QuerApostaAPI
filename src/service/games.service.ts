@@ -50,16 +50,25 @@ async function UpdateAmountWon(gameId: number, homeTeamScore: number, awayTeamSc
   const winners = await betsRpository.findWinners(gameId, homeTeamScore, awayTeamScore);
   const sumwinneramount = await sumWinnerAmount(gameId, homeTeamScore, awayTeamScore);
   const sumgameamount = await sumGameAmount(gameId);
+
   let new_amountBet = 0;
   winners.forEach(async (win) => {
-    new_amountBet = Math.floor(
-      (win.amountBet / sumwinneramount[0]._sum.amountBet) * sumgameamount[0]._sum.amountBet * (1 - 0.3),
-    );
-    betsRpository.UpdateAmountWon(new_amountBet, win.id);
-    participantRpository.updateBalance(
-      new_amountBet + (await participantRpository.findFirstParticipant(win.participantId)).balance,
-      win.participantId,
-    );
+    if (sumwinneramount[0]?._sum?.amountBet && sumgameamount[0]?._sum?.amountBet) {
+      new_amountBet = Math.floor(
+        (win.amountBet / sumwinneramount[0]._sum.amountBet) * sumgameamount[0]._sum.amountBet * (1 - 0.3),
+      );
+      betsRpository.UpdateAmountWon(new_amountBet, win.id);
+
+      const participant = await participantRpository.findFirstParticipant(win.participantId);
+      if (participant) {
+        const newBalance = new_amountBet + participant.balance;
+        participantRpository.updateBalance(newBalance, win.participantId);
+      } else {
+        throw new Error('Participante não encontrado.');
+      }
+    } else {
+      throw new Error('Valores de apostas ou soma dos jogos são inválidos.');
+    }
   });
   return winners;
 }

@@ -1,11 +1,11 @@
 import express, { Request, Response, json, Express } from 'express';
 import 'express-async-errors';
 import cors from 'cors';
-import { participantsRouter } from './routers/participants.routes';
-import { handleApplicationErrors } from './middleware/errorHandling.middleware';
-import { gamesRouter } from './routers/games.routes';
-import betsRouter from './routers/bets.routes';
-import { loadEnv, connectDb, disconnectDB } from '@/config';
+import { participantsRouter } from '@/routers/participants.routes';
+import { handleApplicationErrors } from '@/middleware/errorHandling.middleware';
+import { gamesRouter } from '@/routers/games.routes';
+import betsRouter from '@/routers/bets.routes';
+import { loadEnv, connectDb, disconnectDB } from '@/config/index';
 
 loadEnv();
 

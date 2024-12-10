@@ -1,22 +1,17 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
-    "esModuleInterop": true,
+    "target": "ESNext",
     "module": "CommonJS",
     "moduleResolution": "Node",
-    "baseUrl": "src",
-    "rootDirs": ["src", "tests"],
+    "outDir": "./dist",
+    "baseUrl": "./src",
     "paths": {
       "@/*": ["*"]
     },
-    "plugins": [
-      {
-        "transform": "typescript-transform-paths"
-      }
-    ]
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true
   },
-  "ts-node": {
-    "esm": true
-  },
-  "include": ["src", "tests"]
+  "include": ["src"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }
