@@ -36,6 +36,11 @@ async function updateBalance(id: number, newBalance: number) {
   await participantRpository.updateParticipant(id, newBalance);
 }
 
+async function getBets() {
+  return await betsRpository.getBets();
+}
+
 export const betService = {
   createBet,
+  getBets,
 };
