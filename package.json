@@ -6,7 +6,7 @@
     "dev": "nodemon",
     "dev:load-envs": "dotenv -e .env.development",
     "dev:migration:run": "npm run dev:load-envs prisma migrate deploy",
-    "start": "node dist/index.js",
+    "start": "node dist/server.js",
     "build": "npx tsc && tsc-alias",
     "lint": "eslint .",
     "lint:staged": "lint-staged",
