@@ -5,6 +5,10 @@ async function createBet(data: Prisma.BetUncheckedCreateInput) {
   return prisma.bet.create({ data });
 }
 
+async function getBets() {
+  return prisma.bet.findMany();
+}
+
 async function findWinners(gameId: number, homeTeamScore: number, awayTeamScore: number) {
   return prisma.bet.findMany({
     where: { gameId, homeTeamScore, awayTeamScore },
@@ -57,6 +61,7 @@ async function UpdateAmountWon(new_amountBet: number, betId: number) {
 
 export const betsRpository = {
   createBet,
+  getBets,
   findWinners,
   UpdateStatusWon,
   UpdateStatusLose,

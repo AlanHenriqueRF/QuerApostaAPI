@@ -11,7 +11,9 @@ async function createBet(req: Request, res: Response) {
 }
 
 async function getBet(req: Request, res: Response) {
-  res.status(200).send('Em construção');
+  const bets = await betService.getBets();
+
+  res.status(200).send(bets);
 }
 
 export const betsController = {
