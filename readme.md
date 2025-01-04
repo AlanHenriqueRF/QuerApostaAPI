@@ -142,7 +142,8 @@ Execute as migrações do banco de dados usando os seguintes comandos:
         "amountWon": null
         }
         ```
-# Deploy do back
-https://quer-apostar-itxm.onrender.com
+# Deploy do back feito no [render](https://dashboard.render.com/).
+Segue o link do Deploy: https://quer-apostar-itxm.onrender.com
+# 
 
 Espero que estas instruções sejam úteis para configurar e utilizar a API "Quer Apostar". Se houver alguma dúvida ou problema, sinta-se à vontade para entrar em contato.
